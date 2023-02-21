@@ -4,73 +4,46 @@ window.onload = () => {
     // Дані виводяться в стилізований список,  можете підключити bootstrap чи написати свої стилі. При введені більше 5 пунктів, перший пункт видаляється. В пункті який добавляється повино бути данні які введено і час створення в форматі день, номер місяця, рік і час години хвилини.
 
 
-    let formatTime = function () {
+    // let formatTime = function () {
 
-        let myDate = new Date();
-        return (
-            "  " +
-            myDate.getDate() +
-            "." +
-            (myDate.getMonth() + 1) +
-            "." +
-            myDate.getFullYear() +
-            "  " +
-            myDate.getHours() +
-            ":" +
-            myDate.getMinutes()
-        );
-    };
-    let container = document.querySelector('.container');
+    //     let myDate = new Date();
+    //     return (
+    //         "  " +
+    //         myDate.getDate() +
+    //         "." +
+    //         (myDate.getMonth() + 1) +
+    //         "." +
+    //         myDate.getFullYear() +
+    //         "  " +
+    //         myDate.getHours() +
+    //         ":" +
+    //         myDate.getMinutes()
+    //     );
+    // };
+    // let container = document.querySelector('.container');
 
-    function createEl() {
-        let todoItem = prompt('Enter your data');
-        let item = document.createElement('div');
+    // function createEl() {
+    //     let todoItem = prompt('Enter your data');
+    //     let item = document.createElement('div');
 
-        item.innerText = `${todoItem} and time:${formatTime()}`;
-        container.appendChild(item);
-    }
-    for (let i = 0; i < 6; i++) {
-        createEl();
-    };
-    let allItem = document.getElementsByTagName('div');
+    //     item.innerText = `${todoItem} and time:${formatTime()}`;
+    //     container.appendChild(item);
+    // }
+    // for (let i = 0; i < 6; i++) {
+    //     createEl();
+    // };
+    // let allItem = document.getElementsByTagName('div');
 
-    if (allItem.length > 5) {
-        container.removeChild(container.firstElementChild);
-    };
-    let div = document.querySelector('div');
-    div.setAttribute('border', 'border-primary');
+    // if (allItem.length > 5) {
+    //     container.removeChild(container.firstElementChild);
+    // };
+    // let div = document.querySelector('div');
+    // div.setAttribute('border', 'border-primary');
 
 
 
     // 3) Створити таблицю за допомогою js з полями імя, місто,  курс і заповнити її даними також за допомогою js.  В таблиці повино бути мінімум 2 рядки
 
-
-    // let thead = document.createElement('thead');
-    // let tbody = document.createElement('tbody');
-
-    // table.appendChild(thead);
-    // table.appendChild(tbody);
-
-
-
-    // ourTable.appendChild(table);
-
-    // let row_1 = document.createElement('tr');
-    // let headingName = document.createElement('th');
-    // headingName.innerHTML = "Name";
-    // let headingCity = document.createElement('th');
-    // headingCity.innerHTML = "City";
-    // let headingCours = document.createElement('th');
-    // headingCours.innerHTML = "Cours";
-
-    // row_1.appendChild(heading_1);
-    // row_1.appendChild(heading_2);
-    // row_1.appendChild(heading_3);
-    // thead.appendChild(row_1);
-
-    // let table = document.querySelector('table');
-    // let tr = document.querySelector('tr');
-    // let td = document.cquerySelector('td');
 
 
     let ourTable = document.querySelector('.our_table');
@@ -80,8 +53,7 @@ window.onload = () => {
 
         for (let i = 0; i < rows; i++) {
             let tr = document.createElement('tr');
-            // tr.style.width = '550px';
-            // tr.style.height = '50px';
+
             tr.style.border = '1px solid #000';
 
 
@@ -98,38 +70,32 @@ window.onload = () => {
         }
         parent.appendChild(table);
     }
-    // let td = document.querySelector('td');
-    // td.innerText = 'Name';
+
 
     let td = document.querySelectorAll('td');
     console.log(td);
     td.forEach(index => console.log(index));
-    // return`index`;
-    td[0].innerHTML = 'Name';
-    td[1].innerHTML = "City";
-    td[2].innerHTML = 'Cours';
 
-    td[3].innerHTML = 'Vlad';
-    td[4].innerHTML = 'Kyiv';
-    td[5].innerHTML = 'JS';
+    function addToList(studentsObj) {
 
-    td[6].innerHTML = 'Sofy';
-    td[7].innerHTML = 'Lviv';
-    td[8].innerHTML = 'PHP';
+        for (let i = 0; i < studentsObj.length; i++) {
+            td[i].innerHTML = studentsObj[i].name;
+            td[i + 2].innerHTML = studentsObj[i].city;
+            td[i + 6].innerHTML = studentsObj[i].cours;
+        }
+    }
 
-    td[9].innerHTML = 'Ivan';
-    td[10].innerHTML = 'KrakoW';
-    td[11].innerHTML = 'FULLSTACK';
-    // class newStudent{
-    //     constructor(name, city, cours){
+    
 
-    //     }
-    // }
+    let studentsObj = [
+        { name: 'Name', city: 'City', cours: 'Cours' },
+        { name: 'Vlad', city: 'Kyiv', cours: 'JS' },
+        { name: 'Sofy', city: 'Lviv', cours: 'PHP' },
+        { name: 'Ivan', city: 'KrakoW', cours: 'FULLSTACK' }];
 
+    addToList(studentsObj);
 
-
-
-
+   
 
 
 
